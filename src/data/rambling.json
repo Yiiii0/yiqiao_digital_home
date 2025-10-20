@@ -1,5 +1,31 @@
 [
   {
+    "type": "snippet",
+    "date": "2025-10-09",
+    "content": {
+      "en": "Acknowledge uncertainty, embrace uncertainty, acknowledge complex variables and intricate causal logic.",
+      "zh": "承认不确定性，拥抱不确定性，承认复杂变量，复杂因果逻辑。"
+    },
+    "tag": "personal"
+  },
+  {
+    "type": "blog",
+    "date": "2025-10-19",
+    "title": {
+      "en": "OpenAI's Vertical Integration: Strategy or Defense?",
+      "zh": "OpenAI的垂直整合：是战略还是防御？"
+    },
+    "summary": {
+      "en": "Reflections on Sam Altman's vertical integration strategy and the uncertain future of AI—navigating the boundary between independent companies and tech giants.",
+      "zh": "关于Sam Altman垂直整合战略的思考，以及AI不确定的未来——在独立公司与科技巨头之间寻找边界。"
+    },
+    "file": {
+      "en": "2025-10-19.en.md",
+      "zh": "2025-10-19.md"
+    },
+    "tag": "AI"
+  },
+  {
     "type": "blog",
     "date": "2025-10-02",
     "title": {

@@ -143,8 +143,22 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
     });
   });
 
-  // Load saved language preference
-  const savedLang = localStorage.getItem('language') || 'en';
+  // Check for URL parameter to force language (useful for testing)
+  const urlParams = new URLSearchParams(window.location.search);
+  const langParam = urlParams.get('lang');
+  
+  // Load saved language preference, default to 'en' for first-time visitors
+  let savedLang = localStorage.getItem('language');
+  
+  // If URL parameter is provided, use it and save to localStorage
+  if (langParam && (langParam === 'en' || langParam === 'zh')) {
+    savedLang = langParam;
+    localStorage.setItem('language', langParam);
+  } else if (!savedLang) {
+    savedLang = 'en';
+    localStorage.setItem('language', 'en');
+  }
+  
   const langButton = document.querySelector(`[data-lang="${savedLang}"]`);
   if (langButton) {
     langButtons.forEach(btn => btn.classList.remove('active'));

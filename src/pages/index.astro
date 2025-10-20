@@ -25,6 +25,26 @@ import "../styles/global.css";
       rel="stylesheet"
     />
     <title>{siteConfig.name} - {siteConfig.title.en}</title>
+    
+    <!-- Initialize language BEFORE any component scripts run -->
+    <script>
+      // Initialize language immediately
+      (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const langParam = urlParams.get('lang');
+        let currentLang = localStorage.getItem('language');
+        
+        if (langParam && (langParam === 'en' || langParam === 'zh')) {
+          currentLang = langParam;
+          localStorage.setItem('language', langParam);
+        } else if (!currentLang) {
+          currentLang = 'en';
+          localStorage.setItem('language', 'en');
+        }
+        
+        console.log('Language initialized early:', currentLang);
+      })();
+    </script>
   </head>
   <body>
     <Header />

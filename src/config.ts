@@ -15,8 +15,8 @@ export const siteConfig = {
     github: "https://github.com/Yiiii0",
   },
   aboutMe: {
-    en: "Doing the right things rather than just doing things right. Focusing on outcomes over outputs.",
-    zh: "做正确的事，而不仅仅是把事做对。关注成果而非产出。"
+    en: "Doing the right things rather than just doing things right. Focusing on outcomes over outputs. Embracing uncertainty.",
+    zh: "做正确的事，而不仅仅是把事做对。关注成果而非产出。拥抱不确定性。"
   },
   keywords: ["LLM", "Agent", "Builder", "AI native"],
   skills: ["Python", "PyTorch", "TensorFlow", "ML/DL", "SQL/Spark", "React", "Django", "AWS", "Docker", "JS", "LLM framework", "Git", "CI/CD", "Nginx", "Airflow", "Elasticsearch", "vectordatabase"],
