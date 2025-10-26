@@ -6,6 +6,14 @@ const hasRambling = siteConfig.rambling && siteConfig.rambling.length > 0;
 const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
 const hasResearch = siteConfig.research && siteConfig.research.length > 0;
 const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+
+// Helper function to get English value for initial render
+function getEN(value: any): any {
+  if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+    return value.en || '';
+  }
+  return value || '';
+}
 ---
 
 <footer class="relative bg-gray-50 border-t border-gray-200">
@@ -17,8 +25,8 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
         <h3 class="text-2xl font-bold text-gray-800">
           {siteConfig.name}
         </h3>
-        <p class="text-base text-gray-600">
-          {siteConfig.title}
+        <p class="text-base text-gray-600" data-footer-title>
+          {getEN(siteConfig.title)}
         </p>
         <div class="flex gap-x-6">
           <a
@@ -218,3 +226,30 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
     </svg>
   </div>
 </footer>
+
+<script define:vars={{ siteConfig }}>
+  // Helper function to get localized value
+  function getLocalizedValue(value, lang) {
+    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+      return value[lang] || value.en || '';
+    }
+    return value || '';
+  }
+
+  // Function to update footer content
+  function updateFooterContent(lang) {
+    const titleEl = document.querySelector('[data-footer-title]');
+    if (titleEl) {
+      titleEl.textContent = getLocalizedValue(siteConfig.title, lang);
+    }
+  }
+
+  // Listen for language change
+  window.addEventListener('languageChange', (e) => {
+    updateFooterContent(e.detail.lang);
+  });
+
+  // Apply language on initial load
+  const initialLang = localStorage.getItem('language') || 'en';
+  updateFooterContent(initialLang);
+</script>

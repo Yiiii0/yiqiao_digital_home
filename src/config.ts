@@ -23,6 +23,22 @@ export const siteConfig = {
   rambling: ramblingData,
   experience: [
     {
+      company: "MiraclePlus",
+      title: {
+        en: "Sourcing Analyst Intern",
+        zh: "Sourcing Analyst 实习生"
+      },
+      dateRange: "Oct 2025 - Present",
+      bullets: {
+        en: [
+          "Sourcing and initial screening of North American STEM startups",
+        ],
+        zh: [
+          "负责北美 STEM 初创公司的寻源和初步筛选",
+        ]
+      },
+    },
+    {
       company: 'Baidu - <a href="https://github.com/PaddlePaddle/PaddleOCR" target="_blank" rel="noopener noreferrer">PaddleOCR</a>',
       title: {
         en: "AI & Product Engineer Intern (User & Ecosystem Growth for Revenue Generation)",
