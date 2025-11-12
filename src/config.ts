@@ -19,7 +19,7 @@ export const siteConfig = {
     zh: "做正确的事，而不仅仅是把事做对。关注成果而非产出。拥抱不确定性。"
   },
   keywords: ["LLM", "Agent", "Builder", "AI native"],
-  skills: ["Python", "PyTorch", "TensorFlow", "ML/DL", "SQL/Spark", "React", "Django", "AWS", "Docker", "JS", "LLM framework", "Git", "CI/CD", "Nginx", "Airflow", "Elasticsearch", "vectordatabase"],
+  skills: ["Python", "PyTorch", "TensorFlow", "ML/DL", "SQL/Spark", "React", "Django", "AWS", "Docker", "JS", "LLM framework", "Git", "CI/CD", "Nginx", "Airflow", "Elasticsearch", "vectordatabase", "Supabase", "Vercel", "Vibe Coding"],
   rambling: ramblingData,
   experience: [
     {
