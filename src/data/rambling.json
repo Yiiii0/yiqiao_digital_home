@@ -1,6 +1,15 @@
 [
   {
     "type": "snippet",
+    "date": "2025-11-12",
+    "content": {
+      "en": "GEO is a tricky technology because it's simultaneously a method for polluting and compromising models—something model providers don't want to see. But with such a massive traffic entry point, how to monetize it? A very interesting question.",
+      "zh": "GEO是个很有意思的技术，因为GEO同时也是如何污染和破坏模型的方式，这是模型厂家不愿意看到的，但是这么大的流量入口，如何商业化呢，很有意思的问题"
+    },
+    "tag": "AI"
+  },
+  {
+    "type": "snippet",
     "date": "2025-10-09",
     "content": {
       "en": "Acknowledge uncertainty, embrace uncertainty, acknowledge complex variables and intricate causal logic.",
