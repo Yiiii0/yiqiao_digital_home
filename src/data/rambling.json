@@ -1,6 +1,33 @@
 [
   {
     "type": "snippet",
+    "date": "2026-01-10",
+    "content": {
+      "en": "Attended CES 2026 (Jan 6-9). Noticed that successful projects focus on dominating a specific niche, listening closely to users and market feedback, then rolling out 'light' versions for broader audiences. The LVCC halls felt similar, but seeing so many robots actually working was pretty impressive. Also saw lots of healthcare-focused products. Met interesting ideas and people at the Venetian startup pavilion.",
+      "zh": "1.6-1.9参加了CES 2026，发现做得好的项目都是抓住一个小的细分赛道打穿，专注用户与市场反馈，然后做\"light\"版本推给大众用户。LVCC的展馆大同小异，但看到很多正在\"干活\"的机器人还是挺震撼的，以及不少healthcare主题的产品。威尼斯人的创业馆里遇到了很多有意思的ideas和人。"
+    },
+    "tag": "Event"
+  },
+  {
+    "type": "snippet",
+    "date": "2025-12-31",
+    "content": {
+      "en": "After coming to CMU in the second half of the year, I fell into deep confusion and felt lost—couldn't find a clear direction or purpose. Later realized that the fulfillment from working hard in the summer wasn't about achieving results or finding a clear path, but about doing things amid uncertainty and growing through the process. Perhaps I'll never find that 'main thread,' and seeking an optimal answer was just wishful thinking. For the new year: communicate more, do more, learn from great people, work in the right environment, get quick feedback, adjust fast, and be honest with myself.",
+      "zh": "今年下半年来到CMU后陷入了很深的迷茫和无力感，找不到人生的主线和方向。后来才反应过来，暑期做事的充实感并非来自完成结果后的喜悦或找到清晰的主线，而是在不确定中不断做事，在过程中充实自己。或许永远也找不到所谓的主线，不过是企图寻找最优解的妄念。新的一年：多交流，多做事，和厉害的人学习，在对的环境做事，及时反馈，快速调整，对自己诚实。"
+    },
+    "tag": "Personal"
+  },
+  {
+    "type": "snippet",
+    "date": "2025-12-03",
+    "content": {
+      "en": "Dewey argued in 'How We Think' that thinking is humanity's fundamental trait, and education's role is to help students develop clear, careful, and thorough thinking habits. In the AI era, while machines can process vast information and execute complex tasks, critical thinking and logical reasoning become even more valuable—these are uniquely human strengths and our most important capabilities when collaborating with AI.",
+      "zh": "杜威在《我们如何思维》中提出，思考是人的根本特性，教育的任务是帮助学生形成清醒、细心和透彻的思维习惯。在AI时代，机器可以处理大量信息和执行复杂任务，但批判性思维和逻辑推理能力变得更加珍贵——这些是人类独特的优势，也是我们与AI协作时最重要的能力。"
+    },
+    "tag": "Personal"
+  },
+  {
+    "type": "snippet",
     "date": "2025-11-12",
     "content": {
       "en": "GEO is a tricky technology because it's simultaneously a method for polluting and compromising models—something model providers don't want to see. But with such a massive traffic entry point, how to monetize it? A very interesting question.",
@@ -15,7 +42,7 @@
       "en": "Acknowledge uncertainty, embrace uncertainty, acknowledge complex variables and intricate causal logic.",
       "zh": "承认不确定性，拥抱不确定性，承认复杂变量，复杂因果逻辑。"
     },
-    "tag": "personal"
+    "tag": "Personal"
   },
   {
     "type": "blog",
@@ -49,7 +76,7 @@
       "en": "ai-startup-moat.en.md",
       "zh": "ai-startup-moat.md"
     },
-    "tag": "personal"
+    "tag": "Personal"
   },
   {
     "type": "snippet",
@@ -76,7 +103,7 @@
       "en": "Working with the right people in a team with the right culture to do the right things is a heaven-sent happiness.",
       "zh": "与对的人、在对的团队文化中、做对的事情，是一种天赐的幸福。"
     },
-    "tag": "personal"
+    "tag": "Personal"
   },
   {
     "type": "snippet",
