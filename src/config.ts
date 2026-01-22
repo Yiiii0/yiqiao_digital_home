@@ -23,12 +23,28 @@ export const siteConfig = {
   rambling: ramblingData,
   experience: [
     {
+      company: '<a href="https://hellbender.com/" target="_blank" rel="noopener noreferrer">Hellbender</a> - <a href="https://www.cmu.edu/swartz-center-for-entrepreneurship/mentorship-and-learning/csl/index.html" target="_blank" rel="noopener noreferrer">CMU CSL</a>',
+      title: {
+        en: "Go-to-Market Strategy Project",
+        zh: "GTM 战略项目"
+      },
+      dateRange: "Jan 2026 - Present",
+      bullets: {
+        en: [
+          "Running lean tests and experiments to iterate on Computer Vision as a Service (CVaaS) product and go-to-market strategy",
+        ],
+        zh: [
+          "通过精益测试和实验，迭代 CVaaS（Computer Vision as a Service）产品和市场推广策略",
+        ]
+      },
+    },
+    {
       company: "MiraclePlus",
       title: {
         en: "Sourcing Analyst Intern",
         zh: "Sourcing Analyst 实习生"
       },
-      dateRange: "Oct 2025 - Present",
+      dateRange: "Oct 2025 - Jan 2026",
       bullets: {
         en: [
           "Sourcing and initial screening of North American STEM startups",
@@ -112,6 +128,22 @@ export const siteConfig = {
     },
   ],
   research: [
+    {
+      company: '<a href="https://www.cmu.edu/ini/agai/" target="_blank" rel="noopener noreferrer">AGAI Group</a> | Carnegie Mellon University',
+      title: {
+        en: "Research Assistant, advised by Dr. Mohamed Farag",
+        zh: "Research Assistant，导师：Dr. Mohamed Farag"
+      },
+      dateRange: "Jan 2026 - Present",
+      bullets: {
+        en: [
+          "Studying the impact of RAG indexing and retrieval strategies on GPU energy consumption to build energy-aware AI systems",
+        ],
+        zh: [
+          "研究 RAG 索引和检索策略对 GPU 能源消耗的影响，构建能源感知型 AI 系统",
+        ]
+      },
+    },
     {
       company: "Self-Drive Lab | New York University",
       title: {

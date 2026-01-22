@@ -54,8 +54,12 @@ const ramblingWithContent = siteConfig.rambling?.map(item => {
 // Sort rambling by date (newest first)
 const sortedRambling = ramblingWithContent.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-// Get all unique tags
-const allTags = [...new Set(siteConfig.rambling?.map(item => item.tag) || [])];
+// Get all unique tags (support both string and array tags)
+const allTags = [...new Set(
+  siteConfig.rambling?.flatMap(item => 
+    Array.isArray(item.tag) ? item.tag : [item.tag]
+  ) || []
+)];
 
 // Format date function
 function formatDate(dateStr) {
@@ -69,11 +73,12 @@ function formatDate(dateStr) {
 
 // Tag color mapping
 const tagColors = {
-  'AI': '#3b82f6',     // Blue
-  'personal': '#10b981', // Green
-  'tech': '#f59e0b',   // Amber
-  'work': '#8b5cf6',   // Purple
-  'default': '#6b7280' // Gray
+  'AI': '#3b82f6',       // Blue
+  'Personal': '#10b981', // Green (浅绿)
+  'Event': '#f59e0b',    // Amber (浅黄)
+  'tech': '#f59e0b',     // Amber
+  'work': '#8b5cf6',     // Purple
+  'default': '#6b7280'   // Gray
 };
 
 function getTagColor(tag) {
@@ -164,7 +169,7 @@ function getTagColor(tag) {
                   {sortedRambling.map((note, index) => (
                     <div
                       class={`rambling-item p-4 hover:bg-gray-50 transition-colors duration-200 ${note.type === 'blog' ? 'cursor-pointer' : ''}`}
-                      data-tag={note.tag}
+                      data-tag={Array.isArray(note.tag) ? note.tag.join(',') : note.tag}
                       data-type={note.type}
                       data-index={index}
                     >
@@ -184,12 +189,14 @@ function getTagColor(tag) {
                               >
                                 {formatDate(note.date)}
                               </time>
-                              <span
-                                class="px-2 py-1 text-xs rounded-full font-medium"
-                                style={`background-color: ${getTagColor(note.tag)}20; color: ${getTagColor(note.tag)};`}
-                              >
-                                {note.tag}
-                              </span>
+                              {(Array.isArray(note.tag) ? note.tag : [note.tag]).map((tag) => (
+                                <span
+                                  class="px-2 py-1 text-xs rounded-full font-medium"
+                                  style={`background-color: ${getTagColor(tag)}20; color: ${getTagColor(tag)};`}
+                                >
+                                  {tag}
+                                </span>
+                              ))}
                               <span
                                 class={`px-2 py-1 text-xs rounded-full font-medium ${
                                   note.type === 'blog'
@@ -399,7 +406,10 @@ function getTagColor(tag) {
       ramblingItems.forEach(item => {
         const itemTag = item.getAttribute('data-tag');
         const itemType = item.getAttribute('data-type');
-        const tagMatch = currentTagFilter === 'all' || itemTag === currentTagFilter;
+        
+        // Support multiple tags (stored as comma-separated)
+        const itemTags = itemTag ? itemTag.split(',').map(t => t.trim()) : [];
+        const tagMatch = currentTagFilter === 'all' || itemTags.includes(currentTagFilter);
         const typeMatch = currentTypeFilter === 'all' || itemType === currentTypeFilter;
 
         if (tagMatch && typeMatch) {
@@ -443,18 +453,28 @@ function getTagColor(tag) {
           });
 
           const modalTag = document.getElementById('modal-tag');
-          modalTag.textContent = blog.tag;
-
+          const blogTags = Array.isArray(blog.tag) ? blog.tag : [blog.tag];
+          
           const tagColors = {
             'AI': '#3b82f6',
-            'personal': '#10b981',
+            'Personal': '#10b981',
+            'Event': '#f59e0b',
             'tech': '#f59e0b',
             'work': '#8b5cf6',
             'default': '#6b7280'
           };
-          const tagColor = tagColors[blog.tag] || tagColors.default;
-          modalTag.style.backgroundColor = tagColor + '20';
-          modalTag.style.color = tagColor;
+          
+          // Clear and add multiple tags
+          modalTag.innerHTML = '';
+          blogTags.forEach(tag => {
+            const tagSpan = document.createElement('span');
+            tagSpan.textContent = tag;
+            tagSpan.className = 'px-2 py-1 text-xs rounded-full font-medium mr-2';
+            const tagColor = tagColors[tag] || tagColors.default;
+            tagSpan.style.backgroundColor = tagColor + '20';
+            tagSpan.style.color = tagColor;
+            modalTag.appendChild(tagSpan);
+          });
 
           const blogContent = getLocalizedValue(blog.fullContent, currentLang);
 

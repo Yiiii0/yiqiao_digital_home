@@ -6,7 +6,7 @@
       "en": "Attended CES 2026 (Jan 6-9). Noticed that successful projects focus on dominating a specific niche, listening closely to users and market feedback, then rolling out 'light' versions for broader audiences. The LVCC halls felt similar, but seeing so many robots actually working was pretty impressive. Also saw lots of healthcare-focused products. Met interesting ideas and people at the Venetian startup pavilion.",
       "zh": "1.6-1.9参加了CES 2026，发现做得好的项目都是抓住一个小的细分赛道打穿，专注用户与市场反馈，然后做\"light\"版本推给大众用户。LVCC的展馆大同小异，但看到很多正在\"干活\"的机器人还是挺震撼的，以及不少healthcare主题的产品。威尼斯人的创业馆里遇到了很多有意思的ideas和人。"
     },
-    "tag": "Event"
+    "tag": ["Event", "AI"]
   },
   {
     "type": "snippet",
@@ -24,7 +24,7 @@
       "en": "Dewey argued in 'How We Think' that thinking is humanity's fundamental trait, and education's role is to help students develop clear, careful, and thorough thinking habits. In the AI era, while machines can process vast information and execute complex tasks, critical thinking and logical reasoning become even more valuable—these are uniquely human strengths and our most important capabilities when collaborating with AI.",
       "zh": "杜威在《我们如何思维》中提出，思考是人的根本特性，教育的任务是帮助学生形成清醒、细心和透彻的思维习惯。在AI时代，机器可以处理大量信息和执行复杂任务，但批判性思维和逻辑推理能力变得更加珍贵——这些是人类独特的优势，也是我们与AI协作时最重要的能力。"
     },
-    "tag": "Personal"
+    "tag": ["Personal", "AI"]
   },
   {
     "type": "snippet",
