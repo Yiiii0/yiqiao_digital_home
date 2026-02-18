@@ -11,6 +11,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
 <header
   id="header"
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-sm"
+  style="z-index: 50;"
 >
   <nav class="max-w-7xl mx-auto px-4 sm:px-8 py-4">
     <div class="flex items-center justify-between">
@@ -127,14 +128,22 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
   </div>
   </nav>
 
+  <!-- Mobile menu backdrop -->
+  <div
+    id="mobile-menu-backdrop"
+    class="md:hidden fixed inset-0 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 z-[90]"
+    style="z-index: 90;"
+  ></div>
+
   <!-- Mobile menu -->
   <div
     id="mobile-menu"
-    class="md:hidden fixed inset-0 bg-white transform translate-x-full transition-transform duration-300 ease-in-out"
+    class="md:hidden fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-white transform translate-x-full transition-transform duration-300 ease-in-out z-[100] shadow-2xl"
+    style="z-index: 100;"
   >
-    <div class="flex flex-col h-full">
+    <div class="flex flex-col h-full overflow-hidden">
       <!-- Mobile menu header -->
-      <div class="flex items-center justify-between px-4 py-4 border-b border-gray-200">
+      <div class="flex items-center justify-between px-4 py-4 border-b border-gray-200 flex-shrink-0 bg-white">
         <div class="flex items-center gap-2 bg-gray-100 rounded-full p-1">
           <button
             class="lang-btn-mobile px-3 py-1 text-sm rounded-full transition-all duration-200 active"
@@ -161,8 +170,8 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
       </div>
 
       <!-- Mobile menu items -->
-      <nav class="flex-1 overflow-y-auto">
-        <ul class="flex flex-col py-4">
+      <nav class="flex-1 overflow-y-auto bg-white">
+        <ul class="flex flex-col bg-white">
           <li>
             <a
               href="#about"
@@ -248,20 +257,26 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenuClose = document.getElementById('mobile-menu-close');
   const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
   const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
 
   function openMobileMenu() {
     mobileMenu?.classList.remove('translate-x-full');
+    mobileMenuBackdrop?.classList.remove('opacity-0', 'pointer-events-none');
+    mobileMenuBackdrop?.classList.add('opacity-100');
     document.body.style.overflow = 'hidden';
   }
 
   function closeMobileMenu() {
     mobileMenu?.classList.add('translate-x-full');
+    mobileMenuBackdrop?.classList.add('opacity-0', 'pointer-events-none');
+    mobileMenuBackdrop?.classList.remove('opacity-100');
     document.body.style.overflow = 'auto';
   }
 
   mobileMenuBtn?.addEventListener('click', openMobileMenu);
   mobileMenuClose?.addEventListener('click', closeMobileMenu);
+  mobileMenuBackdrop?.addEventListener('click', closeMobileMenu);
 
   // Close mobile menu when clicking a link
   mobileMenuLinks.forEach(link => {
@@ -346,8 +361,53 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
     overflow: hidden;
   }
 
-  /* Mobile menu animation */
+  /* Ensure mobile menu is above everything */
   #mobile-menu {
-    z-index: 60;
+    height: 100vh !important;
+  }
+
+  /* Mobile menu backdrop */
+  #mobile-menu-backdrop {
+    backdrop-filter: blur(2px);
+  }
+
+  /* Mobile menu content visibility */
+  #mobile-menu nav {
+    background: white !important;
+    width: 100%;
+    overflow-y: auto;
+  }
+
+  #mobile-menu nav ul {
+    background: white !important;
+    width: 100%;
+  }
+
+  #mobile-menu nav ul li {
+    display: block !important;
+    width: 100%;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  #mobile-menu nav ul li a {
+    display: block !important;
+    color: #374151 !important;
+    background: white !important;
+    padding: 1rem 1.5rem !important;
+    font-size: 1.125rem !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+  }
+
+  #mobile-menu nav ul li a:hover {
+    background: #f9fafb !important;
+  }
+
+  /* Ensure flex container works properly */
+  #mobile-menu > div {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    width: 100% !important;
   }
 </style>
