@@ -19,12 +19,12 @@ node scripts/add-rambling.js blog "文章标题" "简短摘要（一句话）" "
 - `"文章标题"`: 在列表和模态框中显示的标题
 - `"简短摘要"`: 显示在列表中的摘要（一句话）
 - `"my-new-blog.md"`: markdown 文件名（必须已存在）
-- `"标签"`: AI / personal / tech / work
+- `"标签"`: 任意字符串均可（推荐使用当前站点已有标签：`AI` / `Personal` / `Event`）
 - `[日期]`: 可选，格式 YYYY-MM-DD，默认今天
 
 **示例：**
 ```bash
-node scripts/add-rambling.js blog "如何判断B端SaaS有没有护城河" "3天观察提炼的判断框架" "ai-startup-moat.md" "personal" "2024-10-02"
+node scripts/add-rambling.js blog "如何判断B端SaaS有没有护城河" "3天观察提炼的判断框架" "ai-startup-moat.md" "Personal" "2024-10-02"
 ```
 
 ## 如何添加 Snippet
@@ -35,6 +35,12 @@ Snippet 不需要单独的文件：
 node scripts/add-rambling.js snippet "这是一句话的想法" "AI" [日期]
 ```
 
+## 双语内容说明
+
+当前 `scripts/add-rambling.js` 会把 `title` / `summary` / `content` 写成字符串（legacy 兼容格式），不会自动生成 `{ en, zh }` 对象。
+
+如果你要保持站点内容双语一致，建议在脚本新增后手动编辑 `src/data/rambling.json`，补充为双语对象。
+
 ## 文件命名建议
 
 - 使用小写字母和连字符
@@ -43,11 +49,13 @@ node scripts/add-rambling.js snippet "这是一句话的想法" "AI" [日期]
 
 ## Markdown 支持的语法
 
-当前支持的 markdown 特性：
+当前 `Rambling.astro` 使用 `marked.js`（CDN）+ fallback 解析器。fallback 支持的 markdown 特性：
 - 标题 (`#`, `##`, `###`)
 - 加粗 (`**text**`)
+- 斜体 (`*text*`)
 - 列表 (`- item`)
 - 链接 (`[text](url)`)
+- 分隔线 (`---`)
 - 段落分隔
 
-如需更多 markdown 特性支持，可以扩展 `Rambling.astro` 中的 `markdownToHtml` 函数。
+如需更多 markdown 特性支持，优先扩展 `marked.js` 配置；离线兜底逻辑在 `fallbackMarkdownRenderer`。

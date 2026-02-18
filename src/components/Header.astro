@@ -10,12 +10,25 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
 
 <header
   id="header"
-  class="fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-300"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-sm"
 >
-  <nav class="max-w-7xl mx-auto px-8 py-4">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-8 py-4">
     <div class="flex items-center justify-between">
-      <div class="flex-1"></div>
-      <ul class="flex items-center gap-8 justify-center flex-1">
+      <!-- Mobile menu button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 text-gray-700 hover:text-black transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      <div class="flex-1 hidden md:block"></div>
+      
+      <!-- Desktop menu -->
+      <ul class="hidden md:flex items-center gap-8 justify-center flex-1">
       <li>
         <a
           href="#about"
@@ -113,33 +126,171 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
     </div>
   </div>
   </nav>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden fixed inset-0 bg-white transform translate-x-full transition-transform duration-300 ease-in-out"
+  >
+    <div class="flex flex-col h-full">
+      <!-- Mobile menu header -->
+      <div class="flex items-center justify-between px-4 py-4 border-b border-gray-200">
+        <div class="flex items-center gap-2 bg-gray-100 rounded-full p-1">
+          <button
+            class="lang-btn-mobile px-3 py-1 text-sm rounded-full transition-all duration-200 active"
+            data-lang="en"
+          >
+            EN
+          </button>
+          <button
+            class="lang-btn-mobile px-3 py-1 text-sm rounded-full transition-all duration-200"
+            data-lang="zh"
+          >
+            中文
+          </button>
+        </div>
+        <button
+          id="mobile-menu-close"
+          class="p-2 text-gray-700 hover:text-black transition-colors"
+          aria-label="Close menu"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile menu items -->
+      <nav class="flex-1 overflow-y-auto">
+        <ul class="flex flex-col py-4">
+          <li>
+            <a
+              href="#about"
+              class="mobile-menu-link block px-6 py-4 text-lg font-medium text-gray-700 hover:bg-gray-50 hover:text-black transition-colors"
+              data-i18n="about"
+            >
+              About
+            </a>
+          </li>
+          {
+            hasRambling && (
+              <li>
+                <a
+                  href="#rambling"
+                  class="mobile-menu-link block px-6 py-4 text-lg font-medium text-gray-700 hover:bg-gray-50 hover:text-black transition-colors"
+                  data-i18n="rambling"
+                >
+                  Rambling
+                </a>
+              </li>
+            )
+          }
+          {
+            hasExperience && (
+              <li>
+                <a
+                  href="#experience"
+                  class="mobile-menu-link block px-6 py-4 text-lg font-medium text-gray-700 hover:bg-gray-50 hover:text-black transition-colors"
+                  data-i18n="workExperience"
+                >
+                  Work Experience
+                </a>
+              </li>
+            )
+          }
+          {
+            hasResearch && (
+              <li>
+                <a
+                  href="#research"
+                  class="mobile-menu-link block px-6 py-4 text-lg font-medium text-gray-700 hover:bg-gray-50 hover:text-black transition-colors"
+                  data-i18n="researchTA"
+                >
+                  Research & TA
+                </a>
+              </li>
+            )
+          }
+          {
+            hasEducation && (
+              <li>
+                <a
+                  href="#education"
+                  class="mobile-menu-link block px-6 py-4 text-lg font-medium text-gray-700 hover:bg-gray-50 hover:text-black transition-colors"
+                  data-i18n="education"
+                >
+                  Education
+                </a>
+              </li>
+            )
+          }
+          {
+            hasProjects && (
+              <li>
+                <a
+                  href="#projects"
+                  class="mobile-menu-link block px-6 py-4 text-lg font-medium text-gray-700 hover:bg-gray-50 hover:text-black transition-colors"
+                  data-i18n="projects"
+                >
+                  Projects
+                </a>
+              </li>
+            )
+          }
+        </ul>
+      </nav>
+    </div>
+  </div>
 </header>
 
 <script>
-  window.addEventListener("scroll", () => {
-    const header = document.getElementById("header");
-    if (window.scrollY > 100) {
-      header?.classList.add("bg-white/80", "backdrop-blur-sm");
-    } else {
-      header?.classList.remove("bg-white/80", "backdrop-blur-sm");
-    }
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenuClose = document.getElementById('mobile-menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+  function openMobileMenu() {
+    mobileMenu?.classList.remove('translate-x-full');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    mobileMenu?.classList.add('translate-x-full');
+    document.body.style.overflow = 'auto';
+  }
+
+  mobileMenuBtn?.addEventListener('click', openMobileMenu);
+  mobileMenuClose?.addEventListener('click', closeMobileMenu);
+
+  // Close mobile menu when clicking a link
+  mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
   });
 
-  // Language switching
-  const langButtons = document.querySelectorAll('.lang-btn');
+  // Language switching for both desktop and mobile
+  const langButtons = document.querySelectorAll('.lang-btn, .lang-btn-mobile');
+  
+  function switchLanguage(lang) {
+    // Update active state for all language buttons
+    document.querySelectorAll('.lang-btn, .lang-btn-mobile').forEach(btn => {
+      btn.classList.remove('active');
+      if (btn.getAttribute('data-lang') === lang) {
+        btn.classList.add('active');
+      }
+    });
+
+    // Store language preference
+    localStorage.setItem('language', lang);
+
+    // Dispatch custom event for other components to listen
+    window.dispatchEvent(new CustomEvent('languageChange', { detail: { lang } }));
+  }
+
   langButtons.forEach(button => {
     button.addEventListener('click', function() {
       const lang = this.getAttribute('data-lang');
-
-      // Update active state
-      langButtons.forEach(btn => btn.classList.remove('active'));
-      this.classList.add('active');
-
-      // Store language preference
-      localStorage.setItem('language', lang);
-
-      // Dispatch custom event for other components to listen
-      window.dispatchEvent(new CustomEvent('languageChange', { detail: { lang } }));
+      switchLanguage(lang);
     });
   });
 
@@ -159,11 +310,9 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
     localStorage.setItem('language', 'en');
   }
   
-  const langButton = document.querySelector(`[data-lang="${savedLang}"]`);
-  if (langButton) {
-    langButtons.forEach(btn => btn.classList.remove('active'));
-    langButton.classList.add('active');
-    window.dispatchEvent(new CustomEvent('languageChange', { detail: { lang: savedLang } }));
+  // Apply saved language
+  if (savedLang) {
+    switchLanguage(savedLang);
   }
 </script>
 
@@ -172,20 +321,33 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
     scroll-behavior: smooth;
   }
 
-  .lang-btn {
+  .lang-btn,
+  .lang-btn-mobile {
     cursor: pointer;
     color: #6b7280;
     font-weight: 500;
   }
 
-  .lang-btn:hover {
+  .lang-btn:hover,
+  .lang-btn-mobile:hover {
     color: #111827;
   }
 
-  .lang-btn.active {
+  .lang-btn.active,
+  .lang-btn-mobile.active {
     background-color: white;
     color: #111827;
     font-weight: 600;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Prevent body scroll when mobile menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  /* Mobile menu animation */
+  #mobile-menu {
+    z-index: 60;
   }
 </style>

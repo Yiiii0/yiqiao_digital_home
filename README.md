@@ -41,12 +41,16 @@ Edit `src/config.ts` to update your personal info, experience, education, etc.
 
 ```bash
 # Add a snippet
-npm run add-rambling snippet "Your content EN" "你的内容 ZH" "tag" [date]
+npm run add-rambling snippet "Your thought" "Tag" [date]
 
 # Add a blog post
-# 1. Create markdown files in src/content/blogs/
-# 2. Run: npm run add-rambling blog "Title EN" "标题 ZH" "Summary EN" "摘要 ZH" "filename.md" "tag" [date]
+# 1. Create markdown file in src/content/blogs/
+# 2. Run: npm run add-rambling blog "Title" "Summary" "filename.md" "Tag" [date]
 ```
+
+Notes:
+- Current `add-rambling` script writes single-language string fields.
+- For bilingual (`en` / `zh`) rambling entries, edit `src/data/rambling.json` manually.
 
 ## Deployment
 

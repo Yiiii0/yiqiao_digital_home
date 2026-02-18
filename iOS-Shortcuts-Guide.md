@@ -26,7 +26,7 @@
    - 允许多行：开启
 
 2. **Choose from Menu**
-   - 选项：AI, personal, tech, work
+   - 选项：AI, Personal, Event
    - 提示："选择标签"
 
 3. **Get Current Date**
@@ -35,6 +35,7 @@
 4. **Text**
    ```json
    {
+     "type": "snippet",
      "date": "[第3步的日期]",
      "content": "[第1步的文本]", 
      "tag": "[第2步选择的标签]"
@@ -105,22 +106,27 @@
 你也可以在电脑上直接使用：
 
 ```bash
-# 添加新的rambling
-npm run add-rambling "你的想法内容" "标签" "日期(可选)"
+# 添加新的 snippet
+npm run add-rambling snippet "你的想法内容" "标签" [日期]
 
-# 或者使用一键脚本（自动提交和推送）
-./scripts/add-rambling-and-push.sh "你的想法内容" "标签" "日期(可选)"
+# 添加新的 blog（先在 src/content/blogs/ 创建 markdown 文件）
+npm run add-rambling blog "标题" "摘要" "your-blog.md" "标签" [日期]
 ```
+
+说明：
+- 当前 `add-rambling` 脚本写入的是单语言字符串字段。
+- 如果需要双语 `{ en, zh }`，请在写入后手动编辑 `src/data/rambling.json`。
+- `scripts/add-rambling-and-push.sh` 参数方式已过时，不建议使用。
 
 ## 📋 可用标签
 - AI
-- personal  
-- tech
-- work
+- Personal
+- Event
+- 也可使用自定义标签（筛选器会动态读取）
 
 ## 🔍 验证
 添加完成后，访问你的网站查看：
-https://yiiii0.github.io/yiqiao_digital_home/
+https://yiqiaoz.me/
 
 ---
 

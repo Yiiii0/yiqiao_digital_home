@@ -16,18 +16,12 @@ if (args.length < 3) {
   console.log('Type: snippet or blog');
   console.log('');
   console.log('Snippet:');
-  console.log('  node add-rambling.js snippet "content_en" "content_zh" "tag" [date]');
-  console.log('  Example: node add-rambling.js snippet "English text" "中文文本" "AI" "2025-09-21"');
+  console.log('  node add-rambling.js snippet "content" "tag" [date]');
+  console.log('  Example: node add-rambling.js snippet "English text" "AI" "2025-09-21"');
   console.log('');
   console.log('Blog:');
-  console.log('  node add-rambling.js blog "title_en" "title_zh" "summary_en" "summary_zh" "filename_base" "tag" [date]');
-  console.log('  Example: node add-rambling.js blog "EN Title" "ZH标题" "EN summary" "ZH摘要" "my-blog" "AI" "2025-09-21"');
-  console.log('');
-  console.log('Blog file structure:');
-  console.log('  - Create: my-blog.en.md and/or my-blog.md in src/content/blogs/');
-  console.log('  - Both languages: my-blog.en.md (English) + my-blog.md (Chinese)');
-  console.log('  - Single language: my-blog.md (will be used for both EN and ZH)');
-  console.log('  - Auto-fallback: If only one file exists, it will be used for both languages');
+  console.log('  node add-rambling.js blog "title" "summary" "filename.md" "tag" [date]');
+  console.log('  Example: node add-rambling.js blog "EN Title" "EN summary" "my-blog.md" "AI" "2025-09-21"');
   process.exit(1);
 }
 
