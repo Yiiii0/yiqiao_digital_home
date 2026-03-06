@@ -1,6 +1,24 @@
 [
   {
     "type": "snippet",
+    "date": "2026-03-06",
+    "content": {
+      "en": "Three core challenges define the agent problem: 1. Communication and alignment between humans and agents; 2. How humans—or agents themselves—review agent outputs; 3. Tool calling and context window management.",
+      "zh": "关于 Agent，有三个核心要素需要解决：1. 人与 Agent 的沟通与对齐；2. 人或 Agent 如何 review Agent 的产出；3. Tool calling 与 Context window 的管理。"
+    },
+    "tag": "AI"
+  },
+  {
+    "type": "snippet",
+    "date": "2026-02-01",
+    "content": {
+      "en": "A great product leverages today's capabilities to delight tomorrow's users.",
+      "zh": "好的产品，是 leverage 今天的能力，让明天的人开心。"
+    },
+    "tag": ["AI", "Personal"]
+  },
+  {
+    "type": "snippet",
     "date": "2026-02-16",
     "content": {
       "en": "Watching a friend use vibe coding to build a relationship-memory app for his girlfriend reminded me that love and a strong desire are the first drivers of both execution and ideas.",

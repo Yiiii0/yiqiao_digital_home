@@ -10,6 +10,7 @@ export const translations = {
 
     // About
     aboutMeTitle: "About Me",
+    values: "Values",
     keywords: "Key words",
     techSkills: "Tech Skills",
 
@@ -37,6 +38,7 @@ export const translations = {
 
     // About
     aboutMeTitle: "关于我",
+    values: "价值观",
     keywords: "关键词",
     techSkills: "技术栈",
 
